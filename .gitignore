@@ -8,3 +8,6 @@ packages/runway/coverage
 # Include the EMP29 runnable distribution
 !emp29/dist/
 !emp29/dist/**
+
+# EMP29 production build
+!emp29/dist/
