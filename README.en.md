@@ -1,71 +1,169 @@
+<div align="center">
+
+![EMP29 Scramjet — official project artwork](brand/EMP29-readme-banner.png)
+
 # EMP29 Pro 2.1 · Scramjet
 
-EMP29 is a personal web browsing application built on MercuryWorkshop Scramjet, with original EMP29 artwork and [Telegram @emp29](https://t.me/emp29). [راهنمای فارسی](README.md).
+**A flexible, bilingual browser workspace powered by open-source Scramjet**
 
-## Start locally
+Workspaces · Split view · Dual transport · Persian / English · Local-first settings
 
-Install Node.js 24 LTS (minimum 22.16), extract the release, and open a terminal in `EMP29_Scramjet/emp29`:
+[![Version](https://img.shields.io/badge/Version-2.1.0-19dcb4?style=flat-square)](CHANGELOG.md)
+[![CI](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml/badge.svg?branch=main)](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-43566b?style=flat-square)](LICENSE)
+[![Node](https://img.shields.io/badge/Node.js-%E2%89%A522.16-43566b?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
+[![Telegram](https://img.shields.io/badge/Telegram-%40emp29-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/emp29)
 
-```sh
+**[Quick start](#quick-start)** · **[Features](#features)** · **[Deployment](#deployment)** · **[Documentation](#documentation)** · **[فارسی](README.md)**
+
+</div>
+
+---
+
+## ✦ Overview
+
+EMP29 Scramjet is an independent, customized build of [MercuryWorkshop/Scramjet](https://github.com/MercuryWorkshop/scramjet), combining a bilingual interface with resource-aware browsing tools. This repository contains both the **matching source code** and **prebuilt local runtime**. Installing the release does not require rebuilding Rust or WASM.
+
+| **24 tabs** | **8 workspaces** | **12 saved sessions** | **2 transports** |
+|:---:|:---:|:---:|:---:|
+| Tab/resource controls | Named, color-coded | Lazy restoration | Libcurl / Epoxy |
+
+> [!IMPORTANT]
+> Scramjet is an experimental web rewriting engine. Compatibility with every website, DRM, video service, or improved network speed is **not guaranteed**. EMP29 is not a VPN, anonymity, or fingerprint-protection product.
+
+<a id="features"></a>
+## ◈ Features
+
+| 🧭 **Navigation and workspaces** | 🌐 **Internationalization and appearance** |
+|---|---|
+| Up to 24 tabs, eight workspaces, pin/reopen, command search, split view, and 12 saved sessions | Live Persian/English switching, RTL/LTR, locally served Vazirmatn, dark/light/system themes, and reduced motion |
+| 📚 **Reading and personal data** | ⚙️ **Transports and diagnostics** |
+| On-demand Readability, a 15-article library, notes and Markdown export, bookmarks/history, JSON backup | Libcurl/Epoxy with automatic fallback, Wisp protocol probes, manual switching and connection repair |
+| 🪶 **Resource management** | 🛡️ **Deployment protections** |
+| Live-frame budgets, lazy session restoration, balanced/light/video presets and bounded public-asset caching | Optional scrypt password access, Origin checks, login limits and filtering of private-network destinations |
+
+Other features include multiple search providers, keyboard shortcuts, optional domain-based tracker blocking and installable PWA support. Workspaces share cookies and are not separate browser profiles. [Full feature reference →](docs/GUIDE_EN_FULL.md#features)
+
+<a id="quick-start"></a>
+## ⚡ Quick start
+
+**Requirements:** Node.js **24 LTS** is recommended; minimum supported runtime is **22.16**. Installing npm dependencies requires network access.
+
+<details open>
+<summary><strong>Windows / PowerShell</strong></summary>
+
+```powershell
+git clone https://github.com/solohkemp-tech/EMP29-Scramjet.git
+cd .\EMP29-Scramjet\emp29
 npm ci --omit=dev --ignore-scripts
 npm run doctor
 npm start
 ```
 
-Open **http://localhost:3030**. The release includes compiled assets and matching source; Rust is not required for installation. For a password-protected installation, run `npm run setup` before starting. Leave the domain prompt empty for local use. Keep the generated `.env` private. Stop with Ctrl+C.
+If you already extracted the project, `Run_EMP29.bat` in the repository root installs production dependencies when needed and starts the app.
 
-Select **English** from the header or login screen, or select your interface language in Settings. The choice persists and is included in backups. Language switches do not reload active pages. Your titles, workspace names, articles and notes keep their original text. Dates and counters use the selected locale; the installed-app manifest has a matching language variant.
+</details>
 
-## Features
+<details>
+<summary><strong>Linux / macOS</strong></summary>
 
-- 24 tabs in eight named workspaces; pinning, reopening, lazy restoration, link copying and resource controls. Workspaces share site cookies and logins.
-- Twelve saved sessions with bounded, deduplicated restoration into the current workspace.
-- Two-pane browsing; both visible tabs are protected from timed suspension.
-- On-demand Mozilla Readability, a 15-article plain-text library, notes, search and Markdown export.
-- Bookmarks, local history, JSON backup/restore, four search providers, a command palette, themes, accents and reduced motion.
-- Libcurl/Epoxy startup fallback, real Wisp protocol probes, two optional alternate Wisp endpoints and a manual transport switch with rollback on failure. Existing requests, forms and payments are not automatically replayed.
-- Optional domain filtering, site exceptions and observed request/block/cache counters. Bounded caching excludes private responses, HTML, API traffic and media streams.
-- A same-origin Wisp server, scrypt password hashing, expiring login sessions, Origin and concurrency limits, private-network destination filtering and production configuration examples.
+```bash
+git clone https://github.com/solohkemp-tech/EMP29-Scramjet.git
+cd EMP29-Scramjet/emp29
+npm ci --omit=dev --ignore-scripts
+npm run doctor
+npm start
+```
 
-Data stays in this browser and does not sync across devices. Backups contain preferences, bookmarks, workspaces, saved sessions and reading content; they omit site cookies, browsing history and login passwords. Application installation does not enable offline proxy browsing.
+You can also run `bash run.sh` from the project root.
 
-## Core improvements in 2.1
+</details>
 
-The upstream base is `b14b709ac190b786dd03becbd0728ab72bdd3ad6`. The fork revision is `emp29-core-2.1.0`; source patch hashes are included in `emp29/dist/build.json`.
+Open **http://localhost:3030** and stop the server with `Ctrl+C`.
 
-The JavaScript rewrite path now initializes its WASM module once instead of constructing a module for every script. A controlled local comparison against EMP29 2.0 ran seven batches of 25 rewrites over five fixtures. Construction count fell from 25 to 1 per batch, and every rewritten output matched. Controller and worker initialization also share one validated binary download. Download failures remain retryable, base64 conversion uses bounded chunks, and frame creation waits for controller readiness.
+For optional password protection, run `npm run setup` in `emp29` before starting. Never commit `emp29/.env` or a backup containing credentials.
 
-The Rust rewriter binary is unchanged. The microbenchmark excludes network traffic, real site execution, browser rendering and video. It does not establish a browser-speed multiplier. Full results and limitations are in [VALIDATION.md](VALIDATION.md) and `emp29/core-benchmark.json`.
+<a id="architecture"></a>
+## ⬡ How it works
 
-## Deploy or upgrade
+```mermaid
+flowchart LR
+    A[EMP29 UI] --> B[Scramjet Controller / SW]
+    B --> C{Transport}
+    C --> D[Libcurl]
+    C --> E[Epoxy]
+    D --> F[Wisp Endpoint]
+    E --> F
+    F --> G[Public websites]
+```
 
-Use a domain with valid HTTPS for remote access: browsers require a secure context for Service Workers. Host the app at the domain root. Configure the internal server on loopback and forward HTTP/WebSocket traffic through your HTTPS reverse proxy. `EMP29_ORIGIN` must match the public origin exactly.
+This is a simplified overview of the client, rewriting/control layer, transports, and Wisp tunnel. The transport fallback and readiness checks are meant to improve startup robustness, not promise faster video or network performance.
 
-```sh
+<a id="performance"></a>
+## ◉ Version 2.1 engineering notes
+
+| Change | Recorded result |
+|---|---|
+| JavaScript/WASM rewrite | In a local 25-rewrite fixture, WASM module construction went from **25** to **1**, with identical rewritten outputs. |
+| Controller/Worker startup | Shared validated binary fetch, retryable failures, bounded byte conversion |
+| Startup ordering | Actual controller readiness awaited before continuing |
+| Validation | **57 tests passed** in the recorded validation environment |
+
+These measurements do **not** establish a browser, network or video speed multiplier. See [Validation](VALIDATION.md), [Version comparison](COMPARISON.md) and [Changelog](CHANGELOG.md).
+
+<a id="deployment"></a>
+## ☁️ Remote deployment
+
+Remote browser clients need a **valid HTTPS origin** for Service Workers and a correctly configured WebSocket reverse proxy. Host EMP29 at your domain root and keep the internal app port private.
+
+```bash
 cd /opt/emp29/emp29
 npm ci --omit=dev --ignore-scripts
 npm run setup
 npm run doctor
 ```
 
-Setup accepts your HTTPS origin, password and port. Samples are in `emp29/deploy/`: Caddy, Nginx and systemd. `sudo bash deploy/install-systemd.sh` installs and enables the systemd service; review the example for your host. Docker Compose is also included. These deployment mechanisms have not been executed on your server.
+Examples are available in [`emp29/deploy/`](emp29/deploy/): **Caddy, Nginx, systemd and Docker Compose**. Set `EMP29_ORIGIN` to the public HTTPS origin and review proxy settings before publishing. These examples have not been validated against your particular remote server.
 
-For an upgrade, export a backup, stop the service, retain the previous directory, extract the new version and transfer the existing `.env`. Install production dependencies, run doctor and restart. Retaining the same origin preserves local browser data. Old preferences default to Persian. The scoped Repair connection tool can refresh this app's Service Worker/cache if an old installation remains stuck. See [RELEASE.md](RELEASE.md).
+[Full deployment instructions](docs/GUIDE_EN_FULL.md#deploy-or-upgrade) · [Upgrade and rollback](RELEASE.md) · [Security boundaries](SECURITY.md)
 
-## Development and licensing
+<a id="documentation"></a>
+## ▤ Documentation
 
-```sh
+| Resource | Contents |
+|---|---|
+| [Full English guide](docs/GUIDE_EN_FULL.md) · [راهنمای فارسی](docs/GUIDE_FA_FULL.md) | Detailed runtime, features, deployment, and troubleshooting |
+| [Validation](VALIDATION.md) | Tests, performance evidence and limitations |
+| [Comparison](COMPARISON.md) · [Research](RESEARCH.md) | Technical comparisons and references |
+| [Release notes](RELEASE.md) · [Changelog](CHANGELOG.md) | Upgrade and rollback procedures |
+| [Security](SECURITY.md) · [License](LICENSE) | Deployment risks, security reporting and obligations |
+| [Original upstream guide](UPSTREAM_README.md) | MercuryWorkshop's original project README |
+
+<details>
+<summary><strong>Develop from source</strong></summary>
+
+```bash
 cd emp29
 npm ci
 npm run build
 npm test
 npm run check
-python3 scripts/package-release.py --output /absolute/path/EMP29_Scramjet_v2.1.0.zip
-npm run doctor
 ```
 
-Rebuild and repackage after changing the source so `/source.zip` matches the running build. See `emp29/vendor/provenance.json` for the Rust binary and `emp29/scripts/rebuild-rewriter.sh` for the optional Rust rebuild recipe.
+Rebuild and repackage after modifying sources so the runtime and downloaded `source.zip` correspond to the same changes. See the [full English guide](docs/GUIDE_EN_FULL.md#development-and-licensing) for packaging commands and Rust provenance.
 
-EMP29 and its corresponding-source download are distributed under **AGPL-3.0-only**. The Mozilla Readability license is included separately. Keep required notices and provide the corresponding source when making a modified service available to users. The original upstream guide is [UPSTREAM_README.md](UPSTREAM_README.md).
+</details>
 
-Automated validation covers 57 scenarios. Real browser screenshots, live website/media compatibility and deployment on your remote server remain untested; Scramjet is an experimental rewriting engine.
+## ♡ Credits and contributing
+
+EMP29 is an independent customized distribution built on [MercuryWorkshop/Scramjet](https://github.com/MercuryWorkshop/scramjet), not an official MercuryWorkshop release. Upstream attribution and third-party notices are preserved. EMP29 and its corresponding source are distributed under **AGPL-3.0-only**, subject to the applicable source-availability obligations.
+
+**Contact:** [Telegram @emp29](https://t.me/emp29) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues) · [Security reporting](SECURITY.md)
+
+<div align="center">
+
+---
+
+**EMP29 © 2026** · Powered by open-source Scramjet · [Back to top ↑](#emp29-pro-21--scramjet)
+
+</div>
