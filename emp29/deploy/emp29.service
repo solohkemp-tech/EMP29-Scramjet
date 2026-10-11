@@ -1,0 +1,23 @@
+[Unit]
+Description=EMP29 personal Scramjet browser
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=emp29
+Group=emp29
+WorkingDirectory=/opt/emp29/emp29
+ExecStart=/usr/bin/node --env-file-if-exists=.env server.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0077
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target

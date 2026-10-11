@@ -1,0 +1,6 @@
+# Replace the hostname. Keep the application's .env EMP29_ORIGIN identical.
+emp29.example.com {
+    reverse_proxy 127.0.0.1:3030
+    # Assets are already precompressed by the app, and Wisp is a binary stream.
+    # Caddy forwards WebSocket upgrades automatically.
+}

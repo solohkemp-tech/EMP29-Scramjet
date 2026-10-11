@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="dark" data-accent="mint">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1114"><meta name="description" content="EMP29 — مرورگر وب شخصی با تب‌ها، نشانک‌ها و کنترل اتصال. ساخته‌شده با Scramjet.">
+  <title>EMP29 · مرورگر وب شخصی</title>
+  <link rel="icon" href="/favicon.png" type="image/png"><link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/style-b5091b23fff6.css">
+</head>
+<body>
+  <div id="shell" class="shell">
+    <aside class="rail" aria-label="منوی اصلی">
+      <button class="brand-mark" data-action="home" aria-label="خانه EMP29"><img src="/assets/emp29-logo-cf2f49420413.png" alt="EMP29" width="34" height="34"></button>
+      <div class="rail-divider"></div>
+      <nav class="rail-nav">
+        <button class="rail-btn selected" data-action="home" data-tip="خانه" aria-label="خانه" data-icon="home"></button>
+        <button class="rail-btn" data-panel="bookmarks" data-tip="نشانک‌ها" aria-label="نشانک‌ها" data-icon="bookmark"></button>
+        <button class="rail-btn" data-panel="history" data-tip="تاریخچه" aria-label="تاریخچه" data-icon="clock"></button>
+        <button class="rail-btn" data-panel="diagnostics" data-tip="وضعیت اتصال" aria-label="وضعیت اتصال" data-icon="activity"></button>
+      </nav>
+      <div class="rail-bottom">
+        <button class="rail-btn" data-action="commands" data-tip="فرمان‌ها" aria-label="فرمان‌ها و میانبرها" data-icon="command"></button>
+        <button class="rail-btn" data-panel="settings" data-tip="تنظیمات" aria-label="تنظیمات" data-icon="settings"></button>
+        <a class="rail-btn telegram" href="https://t.me/emp29" target="_blank" rel="noopener noreferrer" aria-label="تلگرام EMP29" data-tip="@emp29" data-icon="send"></a>
+        <span class="rail-version" dir="ltr">v2.1</span>
+      </div>
+    </aside>
+    <div class="main-shell">
+      <header class="browser-header">
+        <div class="tab-row" dir="ltr">
+          <a class="wordmark" href="/" aria-label="EMP29">EMP<span>29</span></a>
+          <div id="tabs" class="tabs" role="tablist" aria-label="تب‌های مرورگر"></div>
+          <button class="icon-btn new-tab" data-action="new-tab" aria-label="تب جدید (Alt+T)" data-icon="plus"></button>
+          <select id="language-switch" class="language-picker" aria-label="زبان رابط"><option value="fa" lang="fa">فارسی</option><option value="en" lang="en">English</option></select>
+          <button class="icon-btn tab-tools" data-action="commands" aria-label="فهرست فرمان‌ها" data-icon="chevron-down"></button>
+        </div>
+        <div class="toolbar" dir="ltr">
+          <div class="nav-controls">
+            <button class="icon-btn" data-action="back" aria-label="صفحه قبل" data-icon="arrow-left"></button>
+            <button class="icon-btn" data-action="forward" aria-label="صفحه بعد" data-icon="arrow-right"></button>
+            <button class="icon-btn" data-action="reload" aria-label="بارگذاری مجدد" data-icon="refresh"></button>
+          </div>
+          <form id="address-form" class="address-bar" role="search">
+            <span class="address-symbol" data-icon="globe" aria-hidden="true"></span>
+            <input id="address" aria-label="نشانی یا عبارت جست‌وجو" placeholder="نشانی وب یا جست‌وجو…" autocomplete="off" autocapitalize="off" spellcheck="false" dir="auto">
+            <kbd class="address-hint">Alt L</kbd>
+            <button type="button" id="bookmark-btn" class="icon-btn" data-action="bookmark" aria-label="افزودن به نشانک‌ها" data-icon="star"></button>
+          </form>
+          <button id="engine-pill" class="engine-pill" data-panel="diagnostics"><span class="status-dot"></span><span id="engine-label">آماده برای شروع</span></button>
+          <button class="icon-btn" data-action="focus" aria-label="حالت تمرکز" data-icon="expand"></button>
+        </div>
+        <div id="progress" class="progress" aria-hidden="true"></div>
+      </header>
+      <div id="server-banner" class="server-banner" role="status" hidden></div>
+      <main id="workspace" class="workspace">
+        <section id="home" class="home" aria-label="شروع مرور وب">
+          <div class="home-topline"><span class="eyebrow" dir="ltr"><span class="tiny-dot"></span> YOUR WINDOW TO THE WEB</span><span id="home-date" class="home-date"></span></div>
+          <div class="hero">
+            <div class="hero-copy">
+              <div class="hero-kicker"><span class="mini-badge">EMP29 Pro · فضای شخصی وب</span><span class="hero-line"></span></div>
+              <h1>جهان،<br><span>بدون فاصله.</span></h1>
+              <p>یک نشانی، یک جست‌وجو، یک مسیر تازه.<br>وب، تحقیق و مطالعه را در فضای خودت جمع کن.</p>
+              <form id="home-search" class="hero-search" role="search">
+                <span data-icon="search" aria-hidden="true"></span>
+                <input id="home-address" aria-label="جست‌وجو یا نشانی سایت" placeholder="کجا می‌خواهی بروی؟" dir="auto" autocomplete="off" autocapitalize="off" spellcheck="false">
+                <button class="search-submit" type="submit" aria-label="باز کردن سایت یا جست‌وجو" data-icon="arrow-left"></button>
+              </form>
+              <div class="search-caption"><span>جست‌وجو با <button id="search-engine-name" data-panel="settings">Google</button></span><span class="shortcut-label" dir="ltr"><kbd>Alt</kbd> + <kbd>K</kbd> فرمان‌ها</span></div>
+            </div>
+            <div class="brand-scene" aria-hidden="true"><img src="/assets/emp29-hero-14d56d6b86e6.webp" width="960" height="540" decoding="async" fetchpriority="low" alt=""><span class="brand-caption" dir="ltr">EMP29 / EXPLORE YOUR WAY</span></div>
+          </div>
+          <section class="quick-section" aria-labelledby="quick-title"><div class="section-heading"><h2 id="quick-title">یک کلیک تا دنیای تو</h2><button class="text-btn" data-panel="bookmarks">همه نشانک‌ها <span data-icon="arrow-left"></span></button></div><div id="shortcuts" class="shortcuts"></div></section>
+          <section class="workspace-cards">
+            <article class="recent-card"><div class="section-heading"><h2>آخرین مسیرها</h2><button class="text-btn" data-panel="history" aria-label="مشاهده تاریخچه" data-icon="arrow-up-left"></button></div><div id="recent-list"></div></article>
+            <article class="mode-card"><div class="mode-card-icon" data-icon="sliders"></div><div><span class="eyebrow">به سبک خودت</span><h2>مرور، با کنترل بیشتر</h2><p>برای کار روزمره، مصرف کمتر یا تماشای ویدئو تنظیم کن.</p></div><div class="profiles" role="group" aria-label="حالت عملکرد"><button data-profile="balanced">متوازن</button><button data-profile="lean">کم‌مصرف</button><button data-profile="video">ویدئو</button></div></article>
+          </section>
+          <footer class="home-footer"><span dir="ltr">EMP29 <span class="footer-slash">/</span> Built on Scramjet</span><a href="https://t.me/emp29" target="_blank" rel="noopener noreferrer" dir="ltr">@emp29 <span data-icon="arrow-up-right"></span></a></footer>
+        </section>
+        <div id="frames" class="frames" hidden></div>
+        <div id="page-state" class="page-state" hidden aria-live="polite"></div>
+        <div class="focus-return"><button class="secondary-btn" data-action="focus"><span data-icon="shrink"></span> خروج از تمرکز</button></div>
+      </main>
+      <footer class="statusbar"><span id="bottom-state"><span class="status-dot"></span> آماده برای شروع</span><span id="current-host" dir="ltr">EMP29 / PERSONAL WEB</span><button data-panel="diagnostics" id="server-latency">وضعیت اتصال</button></footer>
+    </div>
+  </div>
+  <div id="panel-backdrop" class="backdrop" hidden></div>
+  <dialog id="panel" class="panel" aria-labelledby="panel-title"><header class="panel-heading"><div><span class="eyebrow" dir="ltr">EMP29 WORKSPACE</span><h2 id="panel-title"></h2></div><button id="close-panel" class="icon-btn" aria-label="بستن پنجره" data-icon="x"></button></header><div id="panel-body" class="panel-body"></div></dialog>
+  <dialog id="commands" class="command-dialog" aria-labelledby="command-title"><h2 id="command-title" class="sr-only">فرمان‌ها</h2><div class="command-input"><span data-icon="search"></span><input id="command-search" dir="auto" aria-label="جست‌وجوی فرمان یا نشانک" placeholder="فرمان یا نشانک را پیدا کن…" autocomplete="off"><button class="icon-btn" data-action="close-commands" aria-label="بستن فرمان‌ها" data-icon="x"></button></div><div id="command-list"></div><footer><span>برای اجرا روی فرمان کلیک کن یا Enter بزن</span><kbd>Esc</kbd></footer></dialog>
+  <dialog id="confirm" class="confirm-dialog" aria-labelledby="confirm-title"><span class="dialog-symbol" data-icon="info"></span><h2 id="confirm-title"></h2><p id="confirm-message"></p><div class="dialog-actions"><button id="confirm-cancel" class="secondary-btn">انصراف</button><button id="confirm-accept" class="primary-btn">ادامه</button></div></dialog>
+  <section id="login" class="login" hidden><div class="login-card"><select id="login-language" class="language-picker" aria-label="زبان رابط"><option value="fa" lang="fa">فارسی</option><option value="en" lang="en">English</option></select><img src="/assets/emp29-logo-cf2f49420413.png" width="54" height="54" alt="EMP29"><span class="login-wordmark" dir="ltr">EMP<span>29</span></span><h1>به EMP29 Pro خوش آمدی</h1><p>رمز ورود را برای شروع مرور وارد کن.</p><form id="login-form"><label for="password">رمز ورود</label><input id="password" type="password" autocomplete="current-password" required maxlength="512"><button class="primary-btn" id="login-submit" type="submit">ورود به EMP29 <span data-icon="arrow-left"></span></button><p id="login-error" role="alert"></p></form><a href="https://t.me/emp29" target="_blank" rel="noopener noreferrer" dir="ltr">@emp29</a></div></section>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+  <noscript><p>برای اجرای EMP29، جاوااسکریپت مرورگر را فعال کن.<br>Enable JavaScript in your browser to run EMP29.</p></noscript>
+  <script type="module" src="/assets/app-3MYM5RIF.js"></script>
+</body></html>

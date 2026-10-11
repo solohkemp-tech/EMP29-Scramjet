@@ -1,0 +1,33 @@
+{
+  "version": "2.1.0",
+  "engine": "2.0.67-alpha.2",
+  "controller": "0.0.14",
+  "coreRevision": "emp29-core-2.1.0",
+  "corePatches": {
+    "packages/core/src/shared/rewriters/wasm.ts": "bfe0facb7eecc189bb613fcadaee531add6aafef1a4afbffa702c06d6e88cee8",
+    "packages/controller/src/index.ts": "fc1cb4dd096d1d65f8c61f3f6718de2ab30fee7cbd921cd9bae49116ccffdef1",
+    "packages/controller/src/wasm-payload.ts": "cf0dd146e6ddfa83cae35f0d2af8ec8b924353152fa241b87150b579a572ea77"
+  },
+  "languages": [
+    "fa",
+    "en"
+  ],
+  "runtime": {
+    "libcurl": "/vendor/libcurl-bbcc91982ee9/index.js",
+    "epoxy": "/vendor/epoxy-5a0c9d035fa8/index.js",
+    "scramjet": "/vendor/source-a48e9d81244d/scramjet.js",
+    "wasm": "/vendor/source-87d0153dfa17/scramjet.wasm",
+    "controller": "/vendor/source-d47f4bd526ac/controller.api.js",
+    "inject": "/vendor/source-cd0f697c7910/controller.inject.js",
+    "worker": "/vendor/source-a1a17b9d03ec/controller.sw.js",
+    "utils": "/vendor/utils-9d42736d4e26/scramjet-utils.js"
+  },
+  "brand": {
+    "logo": "/assets/emp29-logo-cf2f49420413.png",
+    "hero": "/assets/emp29-hero-14d56d6b86e6.webp"
+  },
+  "upstreamCommit": "b14b709ac190b786dd03becbd0728ab72bdd3ad6",
+  "sourceBuilt": true,
+  "rewriterHash": "87d0153dfa17",
+  "built": "2026-10-11T07:24:42.329Z"
+}

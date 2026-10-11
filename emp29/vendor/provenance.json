@@ -1,0 +1,9 @@
+{
+  "upstreamCommit": "b14b709ac190b786dd03becbd0728ab72bdd3ad6",
+  "rustc": "1.101.0-nightly (6f5da406b 2026-10-10)",
+  "toolchain": "nightly-2026-10-11",
+  "wasmBindgen": "0.2.105",
+  "binaryen": "132.0.0",
+  "recipe": "scripts/rebuild-rewriter.sh",
+  "sha256": "87d0153dfa17dc049173cdc8ece7975a804a3ab79613a4a3421f8a28e39612f2"
+}

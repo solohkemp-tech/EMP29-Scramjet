@@ -1,0 +1,22 @@
+{
+  "version": "2.1.0",
+  "revision": "emp29-core-2.1.0",
+  "upstreamCommit": "b14b709ac190b786dd03becbd0728ab72bdd3ad6",
+  "node": "v24.19.0",
+  "scope": "Local Node/V8 + jsdom rewrite microbenchmark; excludes network, site execution, browser rendering and video.",
+  "rewritesPerRun": 25,
+  "corpusSize": 5,
+  "runs": 7,
+  "outputIdentical": true,
+  "baseline": {
+    "sha256": "cfa8a61a2b09bbdad0aa77d4347c17e3d179ffa17e8d8d3f237c7a90c2938098",
+    "moduleCompilations": 25,
+    "medianElapsedMs": 10.013
+  },
+  "current": {
+    "sha256": "a48e9d81244d8e9c08a8728a6da7e4378863370369711aab134aeda6fea772df",
+    "moduleCompilations": 1,
+    "medianElapsedMs": 7.254
+  },
+  "wasmSha256": "87d0153dfa17dc049173cdc8ece7975a804a3ab79613a4a3421f8a28e39612f2"
+}
