@@ -312,6 +312,27 @@ export default [
 			assertEqual(rewriteCss(input, context, meta), input);
 		},
 	}),
+	// Comments can contain text that resembles a rule or an @import.
+	directTest({
+		name: "rewriter-css-comment-url-and-import-stay-literal",
+		fn: ({ assertEqual }) => {
+			const { context, meta } = createRewriteContext();
+			const input = '/* url(/a.png) @import "/theme.css" */ a{background:url(/real.png)}';
+			const expected = '/* url(/a.png) @import "/theme.css" */ a{background:url(' +
+				rewriteUrl("/real.png", context, meta) + ')}';
+			assertEqual(rewriteCss(input, context, meta), expected);
+		},
+	}),
+	directTest({
+		name: "rewriter-css-unrewrite-comment-stays-literal",
+		fn: ({ assertEqual }) => {
+			const { context, meta } = createRewriteContext();
+			const proxy = rewriteUrl("/real.png", context, meta);
+			const input = `/* url(${proxy}) */ a{background:url(${proxy})}`;
+			const expected = `/* url(${proxy}) */ a{background:url(https://example.com/real.png)}`;
+			assertEqual(unrewriteCss(input, context), expected);
+		},
+	}),
 	cssRewriteTest({
 		name: "rewriter-css-unquoted-https-url-encoded",
 		url: "https://example.com/a.png?x=1",
@@ -344,25 +365,31 @@ export default [
 			assertEqual(rewriteCss(input, context, meta), input);
 		},
 	}),
+	// rewriteUrl resolves relative URLs against meta.base. The encoded URL
+	// therefore has no information about whether its original form was relative.
+	// Unrewrite must return the canonical absolute URL, not invent a relative URL.
 	cssUnrewriteTest({
 		name: "rewriter-css-unrewrite-url",
 		url: "/assets/bg.png",
 		fn: (url, encoded) => [
 			`body{background:url("${encoded}")}`,
-			`body{background:url("${url}")}`,
+			`body{background:url("${new URL(url, "https://example.com").href}")}`,
 		],
 	}),
 	cssUnrewriteTest({
 		name: "rewriter-css-unrewrite-import-string",
 		url: "/styles/theme.css",
-		fn: (url, encoded) => [`@import "${encoded}";`, `@import "${url}";`],
+		fn: (url, encoded) => [
+			`@import "${encoded}";`,
+			`@import "${new URL(url, "https://example.com").href}";`,
+		],
 	}),
 	cssUnrewriteTest({
 		name: "rewriter-css-unrewrite-import-url",
 		url: "/styles/theme.css",
 		fn: (url, encoded) => [
 			`@import url("${encoded}");`,
-			`@import url("${url}");`,
+			`@import url("${new URL(url, "https://example.com").href}");`,
 		],
 	}),
 	cssUnrewriteTest({
@@ -370,7 +397,7 @@ export default [
 		url: "/z.png",
 		fn: (url, encoded) => [
 			`b{background:URL("${encoded}")}`,
-			`b{background:URL("${url}")}`,
+			`b{background:URL("${new URL(url, "https://example.com").href}")}`,
 		],
 	}),
 	directTest({
@@ -380,7 +407,10 @@ export default [
 			const input =
 				'@import url("/bundle.css") layer(theme) supports(display: grid) screen, print;';
 			const rewritten = rewriteCss(input, context, meta);
-			assertEqual(unrewriteCss(rewritten, context), input);
+			assertEqual(
+				unrewriteCss(rewritten, context),
+				'@import url("https://example.com/bundle.css") layer(theme) supports(display: grid) screen, print;'
+			);
 		},
 	}),
 ];
