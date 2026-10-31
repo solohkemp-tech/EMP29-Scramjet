@@ -86,7 +86,7 @@ npm run doctor
 npm start
 ```
 
-For Linux and macOS, use the commands above from the `emp29` directory.
+For Linux and macOS, use the commands above from the `emp29` directory. Alternatively, run `bash run.sh` **from the repository root**; this launcher exists and starts the app from `emp29`.
 
 </details>
 
@@ -170,6 +170,8 @@ Rebuild and repackage after modifying sources so the runtime and downloaded `sou
 EMP29 is an independent customized distribution built on [MercuryWorkshop/Scramjet](https://github.com/MercuryWorkshop/scramjet), not an official MercuryWorkshop release. Upstream attribution and third-party notices are preserved. EMP29 and its corresponding source are distributed under **AGPL-3.0-only**, subject to the applicable source-availability obligations.
 
 If EMP29 is useful to you, consider **starring** the repository or filing a reproducible issue to help other users discover and improve it.
+
+**Contributing:** [Contribution guide](CONTRIBUTING.md) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues)
 
 **Contact:** [Telegram @emp29](https://t.me/emp29) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues) · [Security reporting](SECURITY.md)
 
