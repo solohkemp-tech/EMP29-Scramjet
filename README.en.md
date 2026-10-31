@@ -8,13 +8,15 @@
 
 Workspaces · Split view · Dual transport · Persian / English · Local-first settings
 
+**Self-hosted Scramjet web proxy workspace** with Wisp WebSocket transport, WebAssembly/WASM rewriting, tab management and connection diagnostics.
+
 [![Version](https://img.shields.io/badge/Version-2.1.0-19dcb4?style=flat-square)](CHANGELOG.md)
 [![CI](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml/badge.svg?branch=main)](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-43566b?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/Node.js-%E2%89%A522.16-43566b?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
 [![Telegram](https://img.shields.io/badge/Telegram-%40emp29-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/emp29)
 
-**[Quick start](#quick-start)** · **[Features](#features)** · **[Deployment](#deployment)** · **[Documentation](#documentation)** · **[فارسی](README.md)**
+**[Use cases](#use-cases)** · **[Quick start](#quick-start)** · **[Features](#features)** · **[Deployment](#deployment)** · **[Documentation](#documentation)** · **[فارسی](README.md)**
 
 </div>
 
@@ -30,6 +32,15 @@ EMP29 Scramjet is an independent, customized build of [MercuryWorkshop/Scramjet]
 
 > [!IMPORTANT]
 > Scramjet is an experimental web rewriting engine. Compatibility with every website, DRM, video service, or improved network speed is **not guaranteed**. EMP29 is not a VPN, anonymity, or fingerprint-protection product.
+
+<a id="use-cases"></a>
+## Who is EMP29 for?
+
+- **Developers exploring web rewriting:** study Scramjet, Service Workers, Wisp and a WASM-based JavaScript rewriter in a self-hosted open-source project.
+- **Self-hosting enthusiasts:** use a bilingual browser workspace locally or behind a correctly configured HTTPS reverse proxy.
+- **People organizing research:** manage tabs, workspaces, reading notes and connection troubleshooting from one interface.
+
+**Security and compatibility limits:** EMP29 is not a VPN, an anonymity service or an isolated browser profile. Support for specific websites, DRM and video playback is not guaranteed.
 
 <a id="features"></a>
 ## ◈ Features
@@ -75,7 +86,7 @@ npm run doctor
 npm start
 ```
 
-You can also run `bash run.sh` from the project root.
+For Linux and macOS, use the commands above from the `emp29` directory.
 
 </details>
 
@@ -157,6 +168,8 @@ Rebuild and repackage after modifying sources so the runtime and downloaded `sou
 ## ♡ Credits and contributing
 
 EMP29 is an independent customized distribution built on [MercuryWorkshop/Scramjet](https://github.com/MercuryWorkshop/scramjet), not an official MercuryWorkshop release. Upstream attribution and third-party notices are preserved. EMP29 and its corresponding source are distributed under **AGPL-3.0-only**, subject to the applicable source-availability obligations.
+
+If EMP29 is useful to you, consider **starring** the repository or filing a reproducible issue to help other users discover and improve it.
 
 **Contact:** [Telegram @emp29](https://t.me/emp29) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues) · [Security reporting](SECURITY.md)
 
