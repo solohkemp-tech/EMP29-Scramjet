@@ -87,7 +87,7 @@ npm run doctor
 npm start
 ```
 
-برای اجرا روی Linux و macOS از دستورهای بالا در پوشه `emp29` استفاده کن.
+برای اجرا روی Linux و macOS از دستورهای بالا در پوشه `emp29` استفاده کن. همچنین از **ریشه مخزن** می‌توانی `bash run.sh` را اجرا کنی؛ این فایل وجود دارد و برنامه را از پوشه `emp29` راه‌اندازی می‌کند.
 
 </details>
 
@@ -173,6 +173,8 @@ npm run check
 این پروژه یک توسعهٔ مستقل از [MercuryWorkshop Scramjet](https://github.com/MercuryWorkshop/scramjet) است، نه محصول رسمی MercuryWorkshop. سورس پایه و یادداشت‌های مجوز حفظ شده‌اند. کد و سورس متناظر مطابق **AGPL-3.0-only** توزیع می‌شوند؛ مجوزهای اجزای ثالث در فایل‌های مربوط درج شده‌اند.
 
 اگر این پروژه به کارت آمد، با **Star** کردن مخزن یا ثبت یک گزارش دقیق از تجربه‌ات به بهبود آن کمک کن.
+
+**مشارکت و گزارش باگ:** [راهنمای مشارکت](CONTRIBUTING.md) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues)
 
 **ارتباط:** [Telegram @emp29](https://t.me/emp29) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues) · [گزارش مسائل امنیتی](SECURITY.md)
 
