@@ -8,13 +8,15 @@
 
 رابط فارسی و انگلیسی · فضاهای کاری چندگانه · مدیریت پیشرفته تب‌ها · کنترل اتصال و موتورهای انتقال
 
+**Self-hosted Scramjet web proxy workspace** · Wisp WebSocket · WebAssembly/WASM rewriter · Persian/English UI · multi-tab navigation. [Read in English](README.en.md).
+
 [![Release](https://img.shields.io/badge/Version-2.1.0-19dcb4?style=flat-square)](CHANGELOG.md)
 [![CI](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml/badge.svg?branch=main)](https://github.com/solohkemp-tech/EMP29-Scramjet/actions/workflows/emp29.yml)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-43566b?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/Node.js-%E2%89%A522.16-43566b?style=flat-square&logo=nodedotjs)](https://nodejs.org/)
 [![Telegram](https://img.shields.io/badge/Telegram-%40emp29-229ED9?style=flat-square&logo=telegram&logoColor=white)](https://t.me/emp29)
 
-**[شروع سریع](#quick-start)** · **[ویژگی‌ها](#features)** · **[نصب روی سرور](#deployment)** · **[مستندات](#documentation)** · **[English](README.en.md)**
+**[مناسب چه کسانی است؟](#use-cases)** · **[شروع سریع](#quick-start)** · **[ویژگی‌ها](#features)** · **[نصب روی سرور](#deployment)** · **[مستندات](#documentation)** · **[English](README.en.md)**
 
 </div>
 
@@ -31,6 +33,15 @@
 
 > [!IMPORTANT]
 > این پروژه بر پایه فناوری آزمایشی بازنویسی وب Scramjet ساخته شده است. سازگاری همه سایت‌ها، DRM، ویدئو یا سرعت بالاتر شبکه تضمین نمی‌شود. EMP29 ابزار VPN یا ناشناس‌سازی نیست.
+
+<a id="use-cases"></a>
+## 🔎 موارد استفاده و مخاطبان پروژه
+
+- **توسعه‌دهندگان وب:** بررسی معماری Scramjet، Service Worker، Wisp، بازنویسی JavaScript و WASM در یک پروژه متن‌باز قابل اجرا.
+- **علاقه‌مندان به Self-hosting:** راه‌اندازی یک فضای کاری مرور وب روی localhost یا دامنه HTTPS با پیکربندی مناسب.
+- **کاربران فارسی و انگلیسی:** مدیریت تب‌ها، فضای کاری، مطالعه و عیب‌یابی اتصال در یک رابط دوزبانه.
+
+EMP29 یک **VPN، سرویس ناشناس‌سازی یا مرورگر دارای پروفایل‌های کاملاً جداگانه** نیست. سازگاری تمام سایت‌ها و پخش ویدئو تضمین نمی‌شود.
 
 <a id="features"></a>
 ## ◈ امکانات کلیدی
@@ -76,7 +87,7 @@ npm run doctor
 npm start
 ```
 
-در پوشه اصلی، `bash run.sh` نیز قابل استفاده است.
+برای اجرا روی Linux و macOS از دستورهای بالا در پوشه `emp29` استفاده کن. همچنین از **ریشه مخزن** می‌توانی `bash run.sh` را اجرا کنی؛ این فایل وجود دارد و برنامه را از پوشه `emp29` راه‌اندازی می‌کند.
 
 </details>
 
@@ -160,6 +171,10 @@ npm run check
 ## ♡ اعتبار پروژه و مشارکت
 
 این پروژه یک توسعهٔ مستقل از [MercuryWorkshop Scramjet](https://github.com/MercuryWorkshop/scramjet) است، نه محصول رسمی MercuryWorkshop. سورس پایه و یادداشت‌های مجوز حفظ شده‌اند. کد و سورس متناظر مطابق **AGPL-3.0-only** توزیع می‌شوند؛ مجوزهای اجزای ثالث در فایل‌های مربوط درج شده‌اند.
+
+اگر این پروژه به کارت آمد، با **Star** کردن مخزن یا ثبت یک گزارش دقیق از تجربه‌ات به بهبود آن کمک کن.
+
+**مشارکت و گزارش باگ:** [راهنمای مشارکت](CONTRIBUTING.md) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues)
 
 **ارتباط:** [Telegram @emp29](https://t.me/emp29) · [Issues](https://github.com/solohkemp-tech/EMP29-Scramjet/issues) · [گزارش مسائل امنیتی](SECURITY.md)
 
